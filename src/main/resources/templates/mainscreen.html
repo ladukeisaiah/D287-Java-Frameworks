@@ -16,9 +16,9 @@
 <body>
 
 <div class="container">
-    <h1>Shop</h1>
+    <h1>The Blue Car Shop</h1>
     <hr>
-    <h2>Parts</h2>
+    <h2>Blue Car Parts</h2>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="partkeyword" id="partkeyword" size="50" th:value="${partkeyword}" required />
         &nbsp;
@@ -32,7 +32,7 @@
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
-            <th>Name</th>
+            <th>Car Part</th>
             <th>Price</th>
             <th>Inventory</th>
             <th>Action</th>
@@ -50,7 +50,7 @@
         </tr>
         </tbody>
     </table>
-    <h2>Products</h2>
+    <h2>Blue Car Products</h2>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="productkeyword" id="productkeyword" size="50" th:value="${productkeyword}" required />
         &nbsp;
@@ -68,7 +68,7 @@
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
-            <th>Name</th>
+            <th>Car Product</th>
             <th>Price</th>
             <th>Inventory</th>
             <th>Action</th>
