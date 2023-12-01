@@ -18,6 +18,7 @@
 <div class="container">
     <h1>The Blue Car Shop</h1>
     <hr>
+    <a th:href="@{/about}" class="btn btn-primary btn-sm mb-3">About Us</a>
     <h2>Blue Car Parts</h2>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="partkeyword" id="partkeyword" size="50" th:value="${partkeyword}" required />

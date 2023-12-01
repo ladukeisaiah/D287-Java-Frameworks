@@ -29,6 +29,37 @@ D.  Add an “About” page to the application to describe your chosen customer�
 company to web viewers and include navigation to and from the “About” page and 
 the main screen.
 
+CHANGES:
+-About.html:
+Html document was created and contains information about 
+our chosen Customer's company. We included the information
+on lines 19-29.
+line 30-31 - link back to main page.
+
+-mainscreen.html:
+A link was added on line 21 to get to the About Us page
+
+-about.html:
+the page was created to display information about the company with 
+a simple html setup just like the mainscreen page. Lines 1-15 are all the
+initial backbone code to declare our html document and set up the header 
+and its associated links. Lines 16-33 contain the body of text/information
+and this is where our main content that gets displayed is located.
+The main content consists of company info declaring who they are,
+where they are located, and a link back to the mainscreen.html
+page on lines 30-31. Line 34 is where the closing </html> tag is 
+located and completes about.html page.
+
+-AboutController.java
+This file was created to handle the HTTP requests and communication
+to be able to move between pages on the web application. Without this code we
+would be unable to send a request to open the about.html page. the file 
+starts out by including a controller package and then importing spring
+frameworks and controllers to be able to operate our functions properly
+from lines 1-4. Line 5 contains our annotated @controller which marks
+it as a Spring MVC controller. within that class we define a method
+with @GetMapping to map the URL "about" from lines 6-13. This code
+allows us to facilitate the communication of the web application.
 
 E.  Add a sample inventory appropriate for your chosen store to the application. 
 You should have five parts and five products in your sample inventory and should 
