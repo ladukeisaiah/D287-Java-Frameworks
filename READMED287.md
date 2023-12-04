@@ -30,12 +30,6 @@ company to web viewers and include navigation to and from the “About” page a
 the main screen.
 
 CHANGES:
--About.html:
-Html document was created and contains information about 
-our chosen Customer's company. We included the information
-on lines 19-29.
-line 30-31 - link back to main page.
-
 -mainscreen.html:
 A link was added on line 21 to get to the About Us page
 
@@ -64,6 +58,23 @@ allows us to facilitate the communication of the web application.
 E.  Add a sample inventory appropriate for your chosen store to the application. 
 You should have five parts and five products in your sample inventory and should 
 not overwrite existing data in the database.
+
+CHANGES:
+
+-BootStrapData.java
+In this file i added a starter set of parts and products:
+lines 43 & 44 i created two variables to count the length of the
+repositories for my if statement.
+lines 46-70 i created an if statement that would check if the
+repositories are equal to 0 so that they dont continue to add repeats
+of the same parts and products to the repositories and make sure there
+are no repeats. on lines 47 & 48 i create two arrays one for my
+parts and one for the names of the parts that I use in my for loop.
+the for loop on lines 50-57 cycles through the length of the array and creates
+new objects for the parts. I did it in this way to decrease the length
+of code and improve the efficiency of the program.
+Lines 59-65 are the creation of the products and adding them to
+their correlating repository.
 
 
 Note: Make sure the sample inventory is added only when both the part and product 

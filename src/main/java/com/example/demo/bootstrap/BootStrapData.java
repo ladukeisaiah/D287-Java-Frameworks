@@ -1,8 +1,10 @@
 package com.example.demo.bootstrap;
 
+import com.example.demo.domain.InhousePart;
 import com.example.demo.domain.OutsourcedPart;
 import com.example.demo.domain.Part;
 import com.example.demo.domain.Product;
+import com.example.demo.repositories.InhousePartRepository;
 import com.example.demo.repositories.OutsourcedPartRepository;
 import com.example.demo.repositories.PartRepository;
 import com.example.demo.repositories.ProductRepository;
@@ -26,7 +28,7 @@ import java.util.Optional;
 public class BootStrapData implements CommandLineRunner {
 
     private final PartRepository partRepository;
-    private final ProductRepository productRepository;
+    private ProductRepository productRepository;
 
     private final OutsourcedPartRepository outsourcedPartRepository;
 
@@ -38,7 +40,34 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        long partCount = partRepository.count();
+        long productCount = productRepository.count();
 
+        if (partCount == 0 && productCount == 0) {
+            InhousePart[] partsArray = new InhousePart[5];
+            String[] names = {"Offroad Tires", "Racing Tires", "Track Lights", "Flood Lights", "All Season Tires"};
+
+            for (int i = 0; i < partsArray.length; i++) {
+                partsArray[i] = new InhousePart();
+                partsArray[i].setName(names[i]);
+                partsArray[i].setInv(5);
+                partsArray[i].setPrice(50.0);
+                partsArray[i].setId(100L + i);
+                partRepository.save(partsArray[i]);
+            }
+
+            Product[] productsArray = new Product[]{
+                    new Product("Offroad Car", 100.0, 15),
+                    new Product("Race Car", 200.0, 10),
+                    new Product("Daily Car", 150.0, 12),
+                    new Product("Daily Offroad Car", 250.0, 8),
+                    new Product("Daily Race Car", 300.0, 6)
+            };
+
+            for (Product product : productsArray) {
+                productRepository.save(product);
+            }
+        }
        /*
         OutsourcedPart o= new OutsourcedPart();
         o.setCompanyName("Western Governors University");
@@ -55,10 +84,10 @@ public class BootStrapData implements CommandLineRunner {
 
         System.out.println(thePart.getCompanyName());
         */
-        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            System.out.println(part.getName()+" "+part.getCompanyName());
-        }
+//        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
+//        for(OutsourcedPart part:outsourcedParts){
+//            System.out.println(part.getName()+" "+part.getCompanyName());
+//        };
 
         /*
         Product bicycle= new Product("bicycle",100.0,15);
@@ -73,5 +102,5 @@ public class BootStrapData implements CommandLineRunner {
         System.out.println("Number of Parts"+partRepository.count());
         System.out.println(partRepository.findAll());
 
-    }
-}
+    };
+};
