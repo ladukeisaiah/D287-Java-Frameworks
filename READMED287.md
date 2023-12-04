@@ -59,6 +59,11 @@ E.  Add a sample inventory appropriate for your chosen store to the application.
 You should have five parts and five products in your sample inventory and should 
 not overwrite existing data in the database.
 
+Note: Make sure the sample inventory is added only when both the part and product
+lists are empty. When adding the sample inventory appropriate for the store, the
+inventory is stored in a set so duplicate items cannot be added to your products.
+When duplicate items are added, make a “multi-pack” part.
+
 CHANGES:
 
 -BootStrapData.java
@@ -77,18 +82,41 @@ Lines 59-65 are the creation of the products and adding them to
 their correlating repository.
 
 
-Note: Make sure the sample inventory is added only when both the part and product 
-lists are empty. When adding the sample inventory appropriate for the store, the 
-inventory is stored in a set so duplicate items cannot be added to your products. 
-When duplicate items are added, make a “multi-pack” part.
-
-
 F.  Add a “Buy Now” button to your product list. Your “Buy Now” button must meet 
 each of the following parameters:
 •  The “Buy Now” button must be next to the buttons that update and delete products.
 •  The button should decrement the inventory of that product by one. It should not affect the 
 inventory of any of the associated parts.
 •  Display a message that indicates the success or failure of a purchase.
+
+CHANGES:
+
+-mainscreen.html
+On lines 86-89 I added my button with the input wrapped inside of a <form>
+to submit a http Post request, which is used for things like updates to 
+inventory and the like. The rest is simple code and also a hidden modifier
+to keep the transmitted data hidden from customers.
+
+-buyProduct.java
+This file is the @controller file to handle the work/method assigned
+in task F. lines 1-17 are my imports. Lines 18-30 are declarations
+of variables/classes/objects. lines 32-50 contain our @Controller
+code. We declare Post request and carry in the productID identifier
+so that our code knows where to subtract a unit of inventory from
+or where to check if any are left. the rest of the code is the if statement
+to identify if there is any inventory left in the database and then go
+to the correct html file depending on if it has one or more or zero.
+lines 52-60 display the @GetMapping to take us to the correlating
+html file depending on what the if statement produced.
+
+-PurchaseError.html
+Lines 1-10 display information that there was an error in the system if the
+inventory was below 0 for the product that someone tried to buy as
+well as a link back to the main screen.
+
+-purchaseSuccess.html
+Lines 1-10 display text saying "purchase successful" if the method
+was able to execute properly as well as a link back to the mainscreen.
 
 
 G.  Modify the parts to track maximum and minimum inventory by doing the following:
