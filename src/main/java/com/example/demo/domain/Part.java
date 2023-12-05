@@ -108,6 +108,13 @@ public abstract class Part implements Serializable {
     public boolean checkInvRange(int inv, int minInv, int maxInv) {
         return inv >= minInv && inv <= maxInv;
     }
+    public boolean checkMinInv(int inv, int minInv) {
+        return inv > minInv;
+    }
+    public boolean checkMaxInv(int inv, int maxInv) {
+        return inv < maxInv;
+    }
+
 
     public void setInv(int inv) {
         this.inv = inv;

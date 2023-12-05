@@ -43,6 +43,12 @@ public class AddOutsourcedPartController {
         if(!part.checkInvRange(part.getInv(),part.getMinInv(),part.getMaxInv())){
             bindingResult.rejectValue("inv", "inventory.range", "Inventory is not within the Minimum and Maximum range!");
         }
+        if (!part.checkMinInv(part.getInv(),part.getMinInv())) {
+            bindingResult.rejectValue("inv", "inventory.belowMinimum", "The inventory is below the Minimum!");
+        }
+        if (!part.checkMaxInv(part.getInv(),part.getMaxInv())) {
+            bindingResult.rejectValue("inv", "inventory.aboveMaximum", "The inventory is above the Maximum!");
+        }
         if(bindingResult.hasErrors()){
             return "OutsourcedPartForm";
         }

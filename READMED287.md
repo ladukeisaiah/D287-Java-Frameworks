@@ -170,6 +170,28 @@ the part inventory below the minimum.
 •  Display error messages when adding and updating parts if the inventory is greater 
 than the maximum.
 
+CHANGES:
+
+-AddInhousePartController.java
+Lines 45-50 were the creation of if statements to produce display errors if 
+the inventory the person was trying to add or update exceeded or was less
+than the marked minimum and maximum values.
+
+-AddOutsourcedPartController.java
+Lines 46-51 were the creation of if statements to produce display errors if
+the inventory the person was trying to add or update exceeded or was less
+than the marked minimum and maximum values.
+
+-EnufPartsValidator.java
+Lines 36-37 I updated the if statement within the isValid method to have another if
+statement that would check if the change/update of the product would take
+the parts below the minimum number they should have.
+
+-Part.java
+Lines 111-117 I added two boolean methods to check if the inventory was
+below the marked MinInv or above the maxInv and then use that in the 
+if statements for Inhouse and Outsourced part additions and updates.
+
 
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest 
 class in the test package.
