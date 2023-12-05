@@ -204,3 +204,6 @@ minimum part values using @Test.
 
 
 J.  Remove the class files for any unused validators in order to clean your code.
+
+-DeletePartValidator.java
+This file was removed for being an unused class in the validators.
