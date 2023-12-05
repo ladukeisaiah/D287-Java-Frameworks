@@ -196,5 +196,11 @@ if statements for Inhouse and Outsourced part additions and updates.
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest 
 class in the test package.
 
+CHANGES:
+
+-partTest.java
+lines 159-176 is where the two test units are created for the Maximum and 
+minimum part values using @Test.
+
 
 J.  Remove the class files for any unused validators in order to clean your code.
