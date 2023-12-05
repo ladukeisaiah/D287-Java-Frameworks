@@ -53,6 +53,8 @@ public class BootStrapData implements CommandLineRunner {
                 partsArray[i].setInv(5);
                 partsArray[i].setPrice(50.0);
                 partsArray[i].setId(100L + i);
+                partsArray[i].setMaxInv(15);
+                partsArray[i].setMinInv(0);
                 partRepository.save(partsArray[i]);
             }
 
@@ -101,6 +103,5 @@ public class BootStrapData implements CommandLineRunner {
         System.out.println(productRepository.findAll());
         System.out.println("Number of Parts"+partRepository.count());
         System.out.println(partRepository.findAll());
-
     };
 };

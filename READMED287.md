@@ -127,6 +127,39 @@ inventory so the user can set the maximum and minimum values.
 •  Rename the file the persistent storage is saved to.
 •  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
 
+CHANGES:
+-AddInHousePartController.java
+Lines 42-43 were changed to check if the inventory is between the maxInv and minInv.
+If it was not within those values it would return an error and would not let the page
+change.
+
+-AddOutsourcedPartController.java
+Lines 43-44 were added to this file the same as inhouse to check that the inventory
+was within the specified min and max range and to throw an error if not.
+
+-application.properties
+this file was updated to account for the changed database name.
+
+-BootStrapData.java
+Lines 58-59 were for adding the max and min values to my fake inventory
+of parts. 
+
+-InhousePartForm.html
+lines 26-29 were for adding the inputs for maxInv and minInv so that
+users could adjust that number as they pleased.
+
+-OutsourcedPartForm.html
+Lines 27-30 were for adding the inputs for maxInv and minInv so that
+users could adjust that number as they pleased.
+
+-Part.java
+Lines 32-38 were for adding readability with space and for ensuring 
+that the integers added to minInv and MaxInv could not be negative numbers.
+Lines 47, 51, 52, 55, 60, and 61 were for declaring the minInv, maxInv into 
+the class being used. Lines 62-77 were for creating simple get and set 
+methods for my max and min inventory features. Lines 108-111 were used
+to create the boolean method that would check if inv fell within the range
+of the min and max values.
 
 H.  Add validation for between or at the maximum and minimum fields. The validation 
 must include the following:
