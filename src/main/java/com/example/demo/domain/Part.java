@@ -109,10 +109,10 @@ public abstract class Part implements Serializable {
         return inv >= minInv && inv <= maxInv;
     }
     public boolean checkMinInv(int inv, int minInv) {
-        return inv > minInv;
+        return inv >= minInv;
     }
     public boolean checkMaxInv(int inv, int maxInv) {
-        return inv < maxInv;
+        return inv <= maxInv;
     }
 
 

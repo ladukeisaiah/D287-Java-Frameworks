@@ -14,6 +14,7 @@ the names of the parts.
 
 CHANGES: 
 -mainscreen.html:
+line 14 changed to "The Blue Car Shop"
 line 19 changed to "The Blue Car Shop"
 line 21 changed to "Blue Car Parts"
 line 53 changed to "Blue Car Products"
@@ -34,6 +35,7 @@ CHANGES:
 A link was added on line 21 to get to the About Us page
 
 -about.html:
+line 14 changed to "The Blue Car Shop".
 the page was created to display information about the company with 
 a simple html setup just like the mainscreen page. Lines 1-15 are all the
 initial backbone code to declare our html document and set up the header 
@@ -153,6 +155,8 @@ Lines 27-30 were for adding the inputs for maxInv and minInv so that
 users could adjust that number as they pleased.
 
 -Part.java
+Lines 112 and 115 were adjusted to account for the minimum and maximum
+numbers to be included instead of not (ex: <= instead of <, >= instead of >).
 Lines 32-38 were for adding readability with space and for ensuring 
 that the integers added to minInv and MaxInv could not be negative numbers.
 Lines 47, 51, 52, 55, 60, and 61 were for declaring the minInv, maxInv into 
